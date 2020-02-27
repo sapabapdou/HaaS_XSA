@@ -1,0 +1,13 @@
+{
+    "role": {
+        "name": "DOU_XSA1::PublicAccessSchema",
+        "schema_privileges": [
+            {
+                "privileges": [
+                    "SELECT",
+                    "EXECUTE"
+                ]
+            }
+        ]
+    }
+}

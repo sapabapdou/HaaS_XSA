@@ -1,0 +1,68 @@
+{
+    "synonym-grantor-service": {
+        "object_owner": {
+            "object_privileges": [
+                {
+                    "name": "EMPDATE",
+                    "schema": "XSA_MIGRATION",
+                    "privileges_with_grant_option": [
+                        "SELECT"
+                    ]
+                },
+                {
+                    "name": "EMPDIM",
+                    "schema": "XSA_MIGRATION",
+                    "privileges_with_grant_option": [
+                        "SELECT"
+                    ]
+                },
+                {
+                    "name": "EMPFACT1",
+                    "schema": "XSA_MIGRATION",
+                    "privileges_with_grant_option": [
+                        "SELECT"
+                    ]
+                },
+                {
+                    "name": "EMPFACT2",
+                    "schema": "XSA_MIGRATION",
+                    "privileges_with_grant_option": [
+                        "SELECT"
+                    ]
+                }
+            ]
+        },
+        "application_user": {
+            "object_privileges": [
+                {
+                    "name": "EMPDATE",
+                    "privileges": [
+                        "SELECT"
+                    ],
+                    "schema": "XSA_MIGRATION"
+                },
+                {
+                    "name": "EMPDIM",
+                    "privileges": [
+                        "SELECT"
+                    ],
+                    "schema": "XSA_MIGRATION"
+                },
+                {
+                    "name": "EMPFACT1",
+                    "privileges": [
+                        "SELECT"
+                    ],
+                    "schema": "XSA_MIGRATION"
+                },
+                {
+                    "name": "EMPFACT2",
+                    "privileges": [
+                        "SELECT"
+                    ],
+                    "schema": "XSA_MIGRATION"
+                }
+            ]
+        }
+    }
+}

@@ -1,0 +1,35 @@
+{
+    "role": {
+        "name": "DOU_XSA1::PublicAccessObjects",
+        "object_privileges": [
+            {
+                "name": "DOU_XSA1::EMPDATE_DATA_CV",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "DOU_XSA1::EMP_CUBE_CV",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "DOU_XSA1::EMP_DATA_CV",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            },
+            {
+                "name": "DOU_XSA1::EMP_FACT2_DATA_CV",
+                "type": "VIEW",
+                "privileges": [
+                    "SELECT"
+                ]
+            }
+        ]
+    }
+}

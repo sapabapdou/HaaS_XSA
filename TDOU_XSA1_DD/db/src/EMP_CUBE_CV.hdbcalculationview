@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="2.3" id="DOU_XSA1::EMP_CUBE_CV" applyPrivilegeType="NONE" defaultClient="$$client$$" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" dataCategory="CUBE" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Aggregation" xscCompatibilityMode="true">
+  <origin/>
+  <descriptions defaultDescription="EMP_CUBE_CV"/>
+  <metadata changedAt="2020-02-25 12:41:37.518"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="21"/>
+  <dataSources>
+    <DataSource id="EMP_DATA_CV">
+      <resourceUri>DOU_XSA1::EMP_DATA_CV</resourceUri>
+    </DataSource>
+    <DataSource id="EMP_FACT2_DATA_CV">
+      <resourceUri>DOU_XSA1::EMP_FACT2_DATA_CV</resourceUri>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_1" joinOrder="OUTSIDE_IN" joinType="leftOuter">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="EMPID"/>
+        <viewAttribute id="EMPNAME"/>
+        <viewAttribute id="EMPDATE"/>
+        <viewAttribute id="SAL_MEASURE"/>
+        <viewAttribute id="DEPTNAME"/>
+        <viewAttribute id="BONUS_MEASURE"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#EMP_DATA_CV">
+        <mapping xsi:type="Calculation:AttributeMapping" target="EMPID" source="EMPID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EMPNAME" source="EMPNAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EMPDATE" source="EMPDATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SAL_MEASURE" source="SAL_MEASURE"/>
+      </input>
+      <input node="#EMP_FACT2_DATA_CV">
+        <mapping xsi:type="Calculation:AttributeMapping" target="DEPTNAME" source="DEPTNAME"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="BONUS_MEASURE" source="BONUS_MEASURE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EMPID" source="EMPID"/>
+      </input>
+      <joinAttribute name="EMPID"/>
+    </calculationView>
+  </calculationViews>
+  <logicalModel id="Join_1">
+    <descriptions/>
+    <attributes>
+      <attribute id="EMPID" key="true" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="EMPID"/>
+        <keyMapping columnObjectName="Join_1" columnName="EMPID"/>
+      </attribute>
+      <attribute id="EMPNAME" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="EMPNAME"/>
+        <keyMapping columnObjectName="Join_1" columnName="EMPNAME"/>
+      </attribute>
+      <attribute id="EMPDATE" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="EMPDATE"/>
+        <keyMapping columnObjectName="Join_1" columnName="EMPDATE"/>
+      </attribute>
+      <attribute id="DEPTNAME" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="DEPTNAME"/>
+        <keyMapping columnObjectName="Join_1" columnName="DEPTNAME"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes/>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures>
+      <measure id="SAL_MEASURE" order="5" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="SAL_MEASURE"/>
+        <measureMapping columnObjectName="Join_1" columnName="SAL_MEASURE"/>
+      </measure>
+      <measure id="BONUS_MEASURE" order="6" aggregationType="sum" measureType="simple">
+        <descriptions defaultDescription="BONUS_MEASURE"/>
+        <measureMapping columnObjectName="Join_1" columnName="BONUS_MEASURE"/>
+      </measure>
+    </baseMeasures>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="40" y="85"/>
+        <rectangleSize/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_1" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="30" y="220"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

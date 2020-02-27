@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Calculation:scenario xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Calculation="http://www.sap.com/ndb/BiModelCalculation.ecore" schemaVersion="2.3" id="DOU_XSA1::EMP_DATA_CV" applyPrivilegeType="NONE" defaultClient="$$client$$" defaultLanguage="$$language$$" hierarchiesSQLEnabled="false" dataCategory="DIMENSION" enforceSqlExecution="false" executionSemantic="UNDEFINED" outputViewType="Projection" xscCompatibilityMode="true">
+  <origin/>
+  <descriptions defaultDescription="EMP_DATA_CV"/>
+  <metadata changedAt="2020-02-25 12:26:57.338"/>
+  <localVariables/>
+  <variableMappings/>
+  <informationModelLayout relativeWidthScenario="27"/>
+  <dataSources>
+    <DataSource id="EMPDIM">
+      <resourceUri>DOU_XSA1::EMPDIM</resourceUri>
+    </DataSource>
+    <DataSource id="EMPFACT1">
+      <resourceUri>DOU_XSA1::EMPFACT1</resourceUri>
+    </DataSource>
+  </dataSources>
+  <calculationViews>
+    <calculationView xsi:type="Calculation:JoinView" id="Join_EMP" joinOrder="OUTSIDE_IN" joinType="leftOuter">
+      <descriptions/>
+      <viewAttributes>
+        <viewAttribute id="EMPID"/>
+        <viewAttribute id="EMPNAME"/>
+        <viewAttribute id="EMPDATE"/>
+        <viewAttribute id="SAL"/>
+        <viewAttribute id="EMPID_1"/>
+      </viewAttributes>
+      <calculatedViewAttributes/>
+      <input node="#EMPDIM">
+        <mapping xsi:type="Calculation:AttributeMapping" target="EMPID" source="EMPID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EMPNAME" source="EMPNAME"/>
+      </input>
+      <input node="#EMPFACT1">
+        <mapping xsi:type="Calculation:AttributeMapping" target="EMPDATE" source="EMPDATE"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="SAL" source="SAL"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EMPID_1" source="EMPID"/>
+        <mapping xsi:type="Calculation:AttributeMapping" target="EMPID" source="EMPID"/>
+      </input>
+      <joinAttribute name="EMPID"/>
+    </calculationView>
+  </calculationViews>
+  <logicalModel id="Join_EMP">
+    <descriptions/>
+    <attributes>
+      <attribute id="EMPID" key="true" order="1" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="EMPID"/>
+        <keyMapping columnObjectName="Join_EMP" columnName="EMPID"/>
+      </attribute>
+      <attribute id="EMPNAME" order="2" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="EMPNAME"/>
+        <keyMapping columnObjectName="Join_EMP" columnName="EMPNAME"/>
+      </attribute>
+      <attribute id="EMPDATE" order="3" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="EMPDATE"/>
+        <keyMapping columnObjectName="Join_EMP" columnName="EMPDATE"/>
+      </attribute>
+      <attribute id="SAL" hidden="true" order="4" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SAL"/>
+        <keyMapping columnObjectName="Join_EMP" columnName="SAL"/>
+      </attribute>
+    </attributes>
+    <calculatedAttributes>
+      <calculatedAttribute id="SAL_MEASURE" hidden="false" order="5" semanticType="empty" attributeHierarchyActive="false" displayAttribute="false">
+        <descriptions defaultDescription="SAL_MEASURE"/>
+        <keyCalculation datatype="INTEGER" expressionLanguage="COLUMN_ENGINE">
+          <formula>&quot;SAL&quot;</formula>
+        </keyCalculation>
+      </calculatedAttribute>
+    </calculatedAttributes>
+    <privateDataFoundation>
+      <tableProxies/>
+      <joins/>
+      <layout>
+        <shapes/>
+      </layout>
+    </privateDataFoundation>
+    <baseMeasures/>
+    <calculatedMeasures/>
+    <restrictedMeasures/>
+    <localDimensions/>
+  </logicalModel>
+  <layout>
+    <shapes>
+      <shape expanded="true" modelObjectName="Output" modelObjectNameSpace="MeasureGroup">
+        <upperLeftCorner x="70" y="140"/>
+        <rectangleSize height="0" width="0"/>
+      </shape>
+      <shape expanded="true" modelObjectName="Join_EMP" modelObjectNameSpace="CalculationView">
+        <upperLeftCorner x="70" y="260"/>
+        <rectangleSize height="-1" width="-1"/>
+      </shape>
+    </shapes>
+  </layout>
+</Calculation:scenario>

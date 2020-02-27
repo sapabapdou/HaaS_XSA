@@ -1,0 +1,26 @@
+{
+    "DOU_XSA1::EMPDATE": {
+        "target": {
+            "schema": "XSA_MIGRATION",
+            "object": "EMPDATE"
+        }
+    },
+    "DOU_XSA1::EMPDIM": {
+        "target": {
+            "schema": "XSA_MIGRATION",
+            "object": "EMPDIM"
+        }
+    },
+    "DOU_XSA1::EMPFACT1": {
+        "target": {
+            "schema": "XSA_MIGRATION",
+            "object": "EMPFACT1"
+        }
+    },
+    "DOU_XSA1::EMPFACT2": {
+        "target": {
+            "schema": "XSA_MIGRATION",
+            "object": "EMPFACT2"
+        }
+    }
+}

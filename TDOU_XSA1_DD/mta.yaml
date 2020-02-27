@@ -1,0 +1,25 @@
+_schema-version: 2.0
+ID: TDOU_XSA1_DD
+description: 
+version: 0.0.0
+
+modules:
+  - name: TDOU_XSA1_DD-db
+    type: hdb
+    path: db
+    requires:
+      - name: TDOU_XSA1_DD-hdi
+        properties:
+            TARGET_CONTAINER: ~{service-name}
+      - name: TDOU_XSA1_DD-service
+
+
+resources:
+  - name: TDOU_XSA1_DD-hdi
+    type: com.sap.xs.hdi-container
+    properties:
+        service-name: ${service-name}
+  - name: TDOU_XSA1_DD-service
+    type: org.cloudfoundry.existing-service
+    parameters:
+        service-name: TDOU_XSA1_DD-service
